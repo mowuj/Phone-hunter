@@ -2,6 +2,8 @@ const searchPhone = () => {
     const searcField = document.getElementById('search-field');
     const searchText = searcField.value;
     // console.log(searchText);
+    toggleSpinner('block');
+    toggleSearchResult('none');
     searcField.value = '';
     // if (searcField == '') {
         
@@ -12,7 +14,12 @@ const searchPhone = () => {
     .then(data=>displayPhone(data.data))
     // console.log(url)
 }
-
+const toggleSpinner = displayStyle => {
+    document.getElementById('spinner').style.display=displayStyle;
+}
+const toggleSearchResult = displayStyle => {
+    document.getElementById('phones').style.display=displayStyle;
+}
 const displayPhone = phones => {
     // console.log(phones)
     const container = document.getElementById('phone');
@@ -35,7 +42,8 @@ const displayPhone = phones => {
         // console.log(phone.slug)
         container.appendChild(div)
     });
-    
+    toggleSpinner('none');
+    toggleSearchResult('block')
 }
 const loadPhoneDetail = phoneId => {
 
