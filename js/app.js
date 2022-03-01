@@ -1,25 +1,27 @@
+// Shearch Phone Text
 const searchPhone = () => {
     const searcField = document.getElementById('search-field');
     const searchText = searcField.value;
-    // console.log(searchText);
     toggleSpinner('block');
     toggleSearchResult('none');
     searcField.value = '';
     // if (searcField == '') {
         
     // }
+    // Search Data 
     const url=`https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
     .then(res=>res.json())
     .then(data=>displayPhone(data.data))
-    // console.log(url)
 }
+// Spinner 
 const toggleSpinner = displayStyle => {
     document.getElementById('spinner').style.display=displayStyle;
 }
 const toggleSearchResult = displayStyle => {
     document.getElementById('phones').style.display=displayStyle;
 }
+// Display Search Phone 
 const displayPhone = phones => {
     // console.log(phones)
     const container = document.getElementById('phone');
@@ -45,6 +47,7 @@ const displayPhone = phones => {
     toggleSpinner('none');
     toggleSearchResult('block')
 }
+// More Details 
 const loadPhoneDetail = phoneId => {
 
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
@@ -52,6 +55,7 @@ const loadPhoneDetail = phoneId => {
         .then(res => res.json())
         .then(data => displayPhoneDetails(data.data))
 }
+// display More Info 
 const displayPhoneDetails = phone => {
     console.log(phone)
     const phoneDetails = document.getElementById('phone-detils');
@@ -70,6 +74,7 @@ const displayPhoneDetails = phone => {
     phoneDetails.appendChild(div)
 
 }
+// Other Info 
 const loadPhoneMoreDetail = phoneId => {
 
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
@@ -77,6 +82,7 @@ const loadPhoneMoreDetail = phoneId => {
         .then(res => res.json())
         .then(data => displayPhoneMoreDetails(data.data))
 }
+// Display Other Info 
 const displayPhoneMoreDetails = phone => {
     console.log(phone)
     const phoneMoreDetails = document.getElementById('more_details');
@@ -102,7 +108,6 @@ const displayPhoneMoreDetails = phone => {
                         </div>
                     </div>
 `;
-    
     phoneMoreDetails.appendChild(div)
 
 }
@@ -116,6 +121,7 @@ const loadOtherDetail = phoneId => {
 const displayOtherDetails = phone => {
     console.log(phone)
     const otherDetails = document.getElementById('other_details');
+    otherDetails.textContent = '';
     const div = document.createElement('div');
     div.classList.add('col-md-8');
     div.innerHTML = `
@@ -142,5 +148,4 @@ const displayOtherDetails = phone => {
 `;
     
     otherDetails.appendChild(div)
-
 }

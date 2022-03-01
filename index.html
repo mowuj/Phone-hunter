@@ -16,12 +16,13 @@
 </head>
 <body>
     <h1 class="text-center">Phone Picker</h1>
+    <!-- Search Box  -->
     <div class="input-group mb-3 w-50 mx-auto">
         <input id="search-field" type="text" class="form-control" placeholder="Search your Fevorate Phone"
             aria-label="Recipient's username" aria-describedby="button-addon2">
         <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
     </div>
-
+    <!-- Spinner  -->
     <div id="spinner">
         <div class="spinner-grow text-primary" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -49,23 +50,29 @@
         </div>
     </div>
     <section class="container">           
-            <div class="col-md-12 mx-auto" >
-                <div class="card mb-3" style="max-width: 540px;" id="other_details">
-                    
+            <div class="row">
+                <!-- More info  -->
+                <div class="col-md-6 mx-auto">
+                    <div class="card mb-3" style="max-width: 540px;" id="more_details">
+                
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-12 mx-auto" >
-                <div class="card mb-3" style="max-width: 540px;" id="more_details">
-                    
+                <!-- Other Info  -->
+                <div class="col-md-6 mx-auto">
+                    <div class="card mb-3" style="max-width: 540px;" id="other_details">
+                
+                    </div>
                 </div>
+                
             </div>
 
     </section>
+    <!-- Phones Info -->
     <section class="container" id="phones">
-        <div id="phone-detils" class="w-50 mx-auto">
+        <div id="phone-detils" class="w-25 mx-auto">
         </div>
         
-
+        <!-- All search Phone  -->
         <div class="row row-cols-1 row-cols-md-3 g-4 " id="phone">
         </div>
     </section>
