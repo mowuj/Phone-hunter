@@ -13,3 +13,27 @@ const searchPhone = () => {
     // console.log(url)
 }
 
+const displayPhone = phones => {
+    // console.log(phones)
+    const container = document.getElementById('phone');
+    // container.textContent = '';
+    phones.forEach(phone => {
+        // console.log(phone.slug)
+        const div = document.createElement('div');
+        div.classList.add('col');
+        div.innerHTML = `
+        <div class="card h-100">
+                <img src="${phone.image}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${phone.brand}</h5>
+                    <h5 class="card-title">${phone.phone_name}</h5>
+                    <h5 class="card-title">${phone.slug}</h5>
+                </div>
+                <button onclick="loadPhoneDetail('${phone.slug}')">More Info</button>
+            </div>
+        `
+        // console.log(phone.slug)
+        container.appendChild(div)
+    });
+    
+}
