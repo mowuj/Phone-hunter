@@ -98,3 +98,41 @@ const displayPhoneMoreDetails = phone => {
     phoneMoreDetails.appendChild(div)
 
 }
+const loadOtherDetail = phoneId => {
+
+    const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayOtherDetails(data.data))
+}
+const displayOtherDetails = phone => {
+    console.log(phone)
+    const otherDetails = document.getElementById('other_details');
+    const div = document.createElement('div');
+    div.classList.add('col-md-8');
+    div.innerHTML = `
+            <div class="row g-0">
+                        <div class="col-md-6">
+                            <img src="${phone.image}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h5 class="card-title">Phone Info</h5>
+                                <p class="card-text">Brand:${phone.brand}</p>
+                                <p class="card-text">${phone.mainFeatures.sensors[0]}</p>
+                                <p class="card-text">${phone.mainFeatures.sensors[1]}</p>
+                                <p class="card-text">${phone.mainFeatures.sensors[2]}</p>
+                                <p class="card-text">${phone.mainFeatures.sensors[3]}</p>
+                                <p class="card-text">${phone.mainFeatures.sensors[4]}</p>
+                                <p class="card-text">${phone.mainFeatures.sensors[5]}</p>
+                                <h5 class="card-title">Other Info</h5>
+                                <p class="card-text">${phone.others.WLAN}</p>
+                            </div>
+                            <button onclick="loadOtherDetail('${phone.slug}')">More Info</button>
+                        </div>
+                    </div>
+`;
+    
+    otherDetails.appendChild(div)
+
+}
