@@ -29,6 +29,7 @@ const displayPhone = phones => {
     const searchResult = document.getElementById('phone');
     const errorHandle = document.getElementById('error');
     searchResult.textContent = '';
+    errorHandle.textContent = '';
     if (phones.length == 0) {
         console.log('no result')
         errorHandle.style.display = 'block'
