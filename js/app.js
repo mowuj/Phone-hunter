@@ -69,6 +69,7 @@ const loadPhoneDetail = phoneId => {
 }
 // display More Info 
 const displayPhoneDetails = phone => {
+    console.log(phone)
     const phoneDetails = document.getElementById('phone-detils');
     phoneDetails.textContent = '';
     const div = document.createElement('div');
@@ -103,7 +104,7 @@ const displayPhoneDetails = phone => {
                                 ${phone.mainFeatures.sensors[4]},
                                 ${phone.mainFeatures.sensors[5]},
                                 <h5 class="card-title">Others</h5>
-                                <p>WLAN:${phone.others.WLAN},
+                                <p>WLAN:${phone.others.WLAN?phone.others.WLAN:'Not Avaiable Right Now'},
                                 <p>Bluetooth:${phone.others.Bluetooth}</p>
                                 <p>GPS:${phone.others.GPS}</p>
                                 <p>USB:${phone.others.USB}</p>
