@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+body {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    background-color: #f5eac0;
+}
+#spinner {
+    display: none;
+    margin:auto ;
+}
+#error{
+    display: none;
+}
+/* #phone-detils{
+    display: none
+} */
